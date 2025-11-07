@@ -29,7 +29,7 @@ touch helloworld.py
 Open and add the following code:
 
 ```python
-print("Hello, World from Dockerized Python App!")
+print("Hello, World")
 ```
 
 Check the file:
@@ -41,8 +41,7 @@ cat helloworld.py
 Run it locally to test:
 
 ```bash
-python3 --version
-python3 helloworld.py
+python helloworld.py
 ```
 
 ---
@@ -56,16 +55,9 @@ touch Dockerfile
 Edit and add the following content:
 
 ```Dockerfile
-# Use official Python base image
-FROM python:3.12-slim
-
-# Set working directory
+FROM python:latest
 WORKDIR /app
-
-# Copy local code to the container
 COPY helloworld.py .
-
-# Command to run the app
 CMD ["python", "helloworld.py"]
 ```
 
@@ -80,7 +72,7 @@ ls
 ### 3️⃣ Build Docker Image
 
 ```bash
-docker build -t atuljkamble/pythonhelloworld .
+docker build -t docker.io/atuljkamble/pythonhelloworld .
 ```
 
 Check Docker images:
@@ -94,7 +86,7 @@ docker images
 ### 4️⃣ Push Docker Image to Docker Hub
 
 ```bash
-docker push atuljkamble/pythonhelloworld
+docker push docker.io/atuljkamble/pythonhelloworld
 ```
 
 ---
@@ -102,7 +94,7 @@ docker push atuljkamble/pythonhelloworld
 ### 5️⃣ Pull Image (if testing from another system)
 
 ```bash
-docker pull atuljkamble/pythonhelloworld
+docker pull docker.io/atuljkamble/pythonhelloworld
 ```
 
 ---
@@ -110,7 +102,7 @@ docker pull atuljkamble/pythonhelloworld
 ### 6️⃣ Run Docker Container
 
 ```bash
-docker run atuljkamble/pythonhelloworld
+docker run docker.io/atuljkamble/pythonhelloworld
 ```
 
 Check running containers:

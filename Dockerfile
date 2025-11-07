@@ -1,4 +1,4 @@
 FROM python:latest
-WORKDIR /usr/app/src
-COPY helloworld.py ./
-CMD [ "python", "./helloworld.py"]
+WORKDIR /app
+COPY helloworld.py .
+CMD [ "python", "helloworld.py"]
